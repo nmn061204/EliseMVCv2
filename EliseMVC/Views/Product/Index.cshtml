@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EliseMVC.Models.tblProduct>
+
+@{
+    ViewBag.Title = "Quản lý kho hàng";
+    Layout = "~/Views/Shared/LayoutAdmin/_AdminLayout.cshtml";
+}
+<h2 class="">Tất cả sản phẩm</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", "Product", new { @class = "btn btn-success" })
+</p>
+<table class="table align-middle text-center">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.ID)</th>
+        <th>@Html.DisplayNameFor(m => m.codeProduct)</th>
+        <th>@Html.DisplayNameFor(m => m.nameProduct)</th>
+        <th>@Html.DisplayNameFor(m => m.quantityProductInput)</th>
+        <th>@Html.DisplayNameFor(m => m.priceProductInput)</th>
+        <th>@Html.DisplayNameFor(m => m.imageProduct1)</th>
+        <th>@Html.DisplayNameFor(m => m.imageProduct2)</th>
+        <th>@Html.DisplayNameFor(m => m.imageProduct3)</th>
+    </tr>
+    @foreach (var pro in Model)
+    {
+        <tr class="">
+            <td>@Html.DisplayFor(m => pro.ID)</td>
+            <td>@Html.DisplayFor(m => pro.codeProduct)</td>
+            <td>@Html.DisplayFor(m => pro.nameProduct)</td>
+            <td>@Html.DisplayFor(m => pro.quantityProductInput)</td>
+            <td>@Html.DisplayFor(m => pro.priceProductInput)</td>
+            <td>
+                <img src="@Url.Content(pro.imageProduct1)" style="height:100px;width:100px; object-fit:contain;" />
+            </td>
+            <td>
+                <img src="@Url.Content(pro.imageProduct2)" style="height: 100px; width: 100px;object-fit:contain;" />
+            </td>
+            <td>
+                <img src="@Url.Content(pro.imageProduct3)" style="height: 100px; width: 100px; object-fit: contain;" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Product", new { id = pro.ID }, new { @class = "btn btn-dark" }) |
+
+                @Html.ActionLink("Detail", "Details", "Product", new { id = pro.ID }, new { @class = "btn btn-warning" }) |
+
+                @Html.ActionLink("Delete", "Delete", "Product", new { id = pro.ID }, new { @class = "btn btn-danger " })
+            </td>
+        </tr>
+    }
+</table>
+
+

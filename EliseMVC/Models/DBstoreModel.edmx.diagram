@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6472b03655cf42a7986b534bfa5d6934" Name="Diagram1">
+        <EntityTypeShape EntityType="DBEliseStoreModel.tblBill" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEliseStoreModel.tblCustumer" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEliseStoreModel.tblDetailBill" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEliseStoreModel.tblProduct" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEliseStoreModel.tblStaff" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBEliseStoreModel.tblUser" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="DBEliseStoreModel.FK__tblBill__codeCus__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEliseStoreModel.FK__tblBill__IDStaff__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEliseStoreModel.FK__tblDetail__IDBil__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DBEliseStoreModel.FK__tblDetail__CodeP__4316F928" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

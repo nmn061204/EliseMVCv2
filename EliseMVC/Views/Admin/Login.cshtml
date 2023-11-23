@@ -1,0 +1,53 @@
+﻿@model EliseMVC.Models.tblUser
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/LayoutAdmin/_AdminLayout.cshtml";
+}
+
+<section class="" style="margin-top:10%;">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://elise.vn/media/logo/default/logo_fb.png"
+                     class="img-fluid" alt="Sample image" style="object-fit:contain;" width="400" height="400">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <div class="d-flex gap-2 mb-5">
+                    <img src="https://lh3.googleusercontent.com/wAPeTvxh_EwOisF8kMR2L2eOrIOzjfA5AjE28W5asyfGeH85glwrO6zyqL71dCC26R63chADTO7DLOjnqRoXXOAB8t2f4C3QnU6o0BA" alt="Alternate Text" width="50" height="50" />
+                    <h1 class="uppercase">Login Admin</h1>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                {
+                    <p style="color: red;">@ViewBag.ErrorMessage</p>
+                }
+                @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { enctype = "multipart / form-data" }))
+                {
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" asp-for="userName">Tên đăng nhập</label>
+                        <div>
+                            @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.userName)
+                        </div>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-3">
+                        <label class="form-label" asp-for="userPass">Mật khẩu</label>
+                        <div>
+                            @Html.PasswordFor(m => m.userPass, new {@class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.userPass)
+                        </div>
+                    </div>
+                    <div class="text-center text-lg-start pt-2">
+                        <input type="submit" value="Đăng nhập" class="btn btn-primary btn-lg"
+                               style="padding-left: 2.5rem; padding-right: 2.5rem;" />
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+

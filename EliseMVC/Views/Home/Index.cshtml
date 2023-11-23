@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EliseMVC.Models.tblProduct>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutCustomer/_Layout.cshtml";
+}
+<div class="slideshow-container">
+    <a href="#" class="slide fade">
+        <img class="img-side" src="https://elise.vn/media/wysiwyg/BANNER/cv-PREPPY-VIBES.jpg" alt="Image 1">
+    </a>
+    <a href="#" class="slide fade">
+        <img class="img-side" src="https://elise.vn/media/wysiwyg/BANNER/cv-knit.jpg" alt="Image 2">
+    </a>
+    <a href="#" class="slide fade">
+        <img class="img-side" src="https://elise.vn/media/wysiwyg/BANNER/cv-bw.jpg" alt="Image 3">
+    </a>
+    <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+<div class="content">
+    <div class="row">
+        <h3 class="text-center fs-30" id="new-arrival-title">NEW ARRIVAL</h3>
+        @foreach (var pro in Model)
+        {
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-5">
+                <a href="@Url.Action("ProductDetail", "Home", new { id = pro.ID })" class="product-card">
+                    <div class="image-container cursor-pointer">
+                        <img class="base-image image"
+                             src="@Url.Content(pro.imageProduct1)"
+                             alt="Base Image">
+                        <img class="hover-image image"
+                             src="@Url.Content(pro.imageProduct2)"
+                             alt="Hover Image">
+                        <span class="sale triangle-up">
+                            <span>-20%</span>
+                        </span>
+                    </div>
+                    <div class="pt-3">
+                        <a class="text-dark text-hover text-decoration-none fs-17 fw-500" href="#">
+                            @Html.DisplayFor(m => pro.nameProduct)
+                        </a>
+                        <div class="fs-16">
+                            <span class="me-2">@Html.DisplayFor(m => pro.priceProductInput) VND</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+
+        <!-- btn xem thêm  -->
+        <div class="text-center">
+            <button id="load-more" class="btn bg-dark text-white mx-auto mt-5 mb-5 rounded-0 uppercase fw-500"
+                    style="height: 3rem; width: 10.5rem;">
+                Xem thêm
+            </button>
+        </div>
+    </div>
+</div>

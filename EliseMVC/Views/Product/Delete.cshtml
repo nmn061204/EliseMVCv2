@@ -1,0 +1,76 @@
+﻿@model EliseMVC.Models.tblProduct
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/LayoutAdmin/_AdminLayout.cshtml";
+}
+<h3>Xác nhận xóa sản phẩm</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codeProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codeProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nameProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantityProductInput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantityProductInput)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceProductInput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceProductInput)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sizePro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sizePro)
+        </dd>
+    </dl>
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.imageProduct1)</th>
+            <td>
+                <img src="@Url.Content(Model.imageProduct1)" style="width:100px;height:100px;object-fit:contain" />
+            </td>
+            <th>@Html.DisplayNameFor(m => m.imageProduct2)</th>
+            <td>
+                <img src="@Url.Content(Model.imageProduct2)" style="width: 100px; height: 100px; object-fit: contain" />
+            </td>
+            <th>@Html.DisplayNameFor(m => m.imageProduct3)</th>
+            <td>
+                <img src="@Url.Content(Model.imageProduct3)" style="width: 100px; height: 100px; object-fit: contain" />
+            </td>        
+        </tr>
+    </table>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-warning" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

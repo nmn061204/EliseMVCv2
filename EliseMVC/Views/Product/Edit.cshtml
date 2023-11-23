@@ -1,0 +1,99 @@
+﻿@model EliseMVC.Models.tblProduct
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+                @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>tblProduct</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.codeProduct, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.codeProduct, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.codeProduct, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nameProduct, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.nameProduct, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nameProduct, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.quantityProductInput, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.quantityProductInput, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.quantityProductInput, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.priceProductInput, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.priceProductInput, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.priceProductInput, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.sizePro, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.sizePro, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.sizePro, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.imageProduct1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.imageProduct1, new { htmlAttributes = new { @class = "form-control" } })
+            <img src="@Url.Content(Model.imageProduct1)" id="imagePreview1" style="max-width: 150px; max-height: 150px; " alt="Image Preview 1">
+            <input type="file" name="UploadImg1" accept="image/*" onchange="previewImage(this, 'imagePreview1')">
+            @Html.ValidationMessageFor(model => model.imageProduct1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.imageProduct2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.imageProduct2, new { htmlAttributes = new { @class = "form-control" } })
+            <img src="@Url.Content(Model.imageProduct2)" id="imagePreview2" style="max-width: 150px; max-height: 150px; " alt="Image Preview 2">
+            <input type="file" name="UploadImg2" accept="image/*" onchange="previewImage(this, 'imagePreview2')">
+            @Html.ValidationMessageFor(model => model.imageProduct2, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.imageProduct3, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.imageProduct3, new { htmlAttributes = new { @class = "form-control" } })
+            <img id="imagePreview3" src="@Url.Content(Model.imageProduct3)" style="max-width: 150px; max-height: 150px;" alt="Image Preview 3">
+            <input type="file" name="UploadImg3" accept="image/*" onchange="previewImage(this, 'imagePreview3')">
+            @Html.ValidationMessageFor(model => model.imageProduct3, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-toolbar" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

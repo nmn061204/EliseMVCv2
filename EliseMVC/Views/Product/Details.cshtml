@@ -1,0 +1,70 @@
+﻿@model EliseMVC.Models.tblProduct
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codeProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codeProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nameProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantityProductInput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantityProductInput)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceProductInput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceProductInput)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sizePro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sizePro)
+        </dd>
+    </dl>
+    <table class="table">
+        <tr>
+            <td>
+                <img src="@Url.Content(Model.imageProduct1)" style="height:100px;width:100px; object-fit:contain;" />
+            </td>
+            <td>
+                <img src="@Url.Content(Model.imageProduct2)" style="height: 100px; width: 100px;object-fit:contain;" />
+            </td>
+            <td>
+                <img src="@Url.Content(Model.imageProduct3)" style="height: 100px; width: 100px; object-fit: contain;" />
+            </td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

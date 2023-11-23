@@ -1,0 +1,119 @@
+﻿@model EliseMVC.Models.tblProduct
+      @{ 
+          ViewBag.Title = Model.nameProduct.ToUpper();
+          Layout = "~/Views/Shared/LayoutCustomer/_Layout.cshtml";
+      }
+
+<div id="detail" style="margin-top: 120px;">
+    <div class="row product-detail-infomation-sticky-parent justify-content-center">
+        <div class="col-sm-6 col-xs-12 product-gallery-popup">
+            <div class="product-detail-media">
+                <div class="product media">
+                    <div class="gallery-list">
+                        <div class="product item-image imgzoom">
+                            <a class="lb image-detail"
+                               data-big="@Url.Content(Model.imageProduct1)">
+                                <img class="img-responsive"
+                                     src="@Url.Content(Model.imageProduct1)"
+                                     alt="@Model.nameProduct">
+                            </a>
+                        </div>
+                        <div class="product item-image imgzoom">
+                            <a class="lb image-detail"
+                               data-big="@Url.Content(Model.imageProduct2)">
+                                <img class="img-responsive"
+                                     src="@Url.Content(Model.imageProduct2)"
+                                     alt="@Model.nameProduct">
+                            </a>
+                        </div>
+                        <div class="product item-image imgzoom">
+                            <a class="lb image-detail"
+                               data-big="@Url.Content(Model.imageProduct3)">
+                                <img class="img-responsive"
+                                     src="@Url.Content(Model.imageProduct3)"
+                                     alt="@Model.nameProduct">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12 product-detail-infomation product-detail-infomation-sticky">
+            <div class="product-detail-infomation-content">
+                <div class="product-info-main">
+                    <div class="product-name-label">
+                        <h1 class="product-name">@Model.nameProduct</h1>
+                    </div>
+                    <div class="product-info-price">
+                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="53666"
+                             data-price-box="product-id-53666">
+                            <span class="special-price">
+                                <span class="price-container price-final_price tax weee">
+                                    <span id="product-price-53666" data-price-amount="1758400" data-price-type="finalPrice"
+                                          class="price-wrapper "><span class="price">@Model.priceProductInput</span></span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product attribute sku">
+                            <strong class="type">SKU:</strong> <span class="value" itemprop="sku">@Model.codeProduct</span>
+                        </div>
+                        <div class="line"></div>
+                        <div class="product-options-wrapper" id="product-options-wrapper">
+                            <div class="option-title title"><span>Kích cỡ</span>:</div>
+                            <div class="option-list">
+                                @foreach (var size in Model.sizePro.Split(','))
+                                {
+                                    <span class="option-item">@size</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="product-options-wrapper" id="product-options-wrapper">
+                            <div class="option-title title"><span>Số lượng</span></div>
+                            <div class="button-inventory">
+                                <i class="fa-solid fa-minus"></i>
+                                <span class="mx-4">1</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <div class="btn-add-cart btnn">
+                                Thêm vào giỏ
+                            </div>
+                            <div class="btn-add btnn">
+                                Thêm vào yêu thích
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="uppercase d-flex flex-column" style="margin: 32px 0">
+                        <div style="margin: 8px 0">
+                            <i class=" fas fa-caret-right"></i><span style="padding: 0 8px">
+                                Hướng dẫn mua
+                                hàng
+                            </span>
+                        </div>
+                        <div style="margin: 8px 0">
+                            <i class="fas fa-caret-right"></i><span style="padding: 0 8px">
+                                Hướng dẫn chọn
+                                kích cỡ
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product info detailed d-flex justify-content-between flex-column align-items-center">
+            <div class="block-title text-center uppercase">
+                <h3 class="title">Đánh giá sản phẩm</h3>
+            </div>
+            <div class="block-content mt-3">
+                <div class="message info notlogged">
+                    <i class="fa-regular fa-flag"></i><span class="ms-2">
+                        Bạn cần đăng nhập để viết nhận xét. Vui lòng Đăng nhập or
+                        Tạo tài khoản
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
