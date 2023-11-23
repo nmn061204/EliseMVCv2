@@ -21,7 +21,7 @@
                 {
                     <p style="color: red;">@ViewBag.ErrorMessage</p>
                 }
-                @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { enctype = "multipart / form-data" }))
+                @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
                 {
                     <!-- Email input -->
                     <div class="form-outline mb-4">

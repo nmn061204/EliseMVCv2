@@ -1,0 +1,69 @@
+﻿
+@model IEnumerable<EliseMVC.Models.tblProduct>
+
+<div class="container-md">
+    <div class="row">
+        <div class="mb-5">
+            <h3 class="fs-30 fw-bold">THÔNG TIN GIỎ HÀNG</h3>
+            <p>Bạn có @Model.ToArray().Length mặt hàng trong giỏ.</p>
+        </div>
+        @foreach (var pro in Model)
+        {
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-5 d-flex flex-column justify-content-between">
+                <a href="@Url.Action("ProductDetail", "Home", new { id = pro.ID })" class="product-card">
+                    <div class="image-container cursor-pointer">
+                        <img class="base-image image img-fluid"
+                             src="@Url.Content(pro.imageProduct1)"
+                             alt="Base Image">
+                        <img class="hover-image image img-fluid"
+                             src="@Url.Content(pro.imageProduct2)"
+                             alt="Hover Image">
+                        <span class="sale triangle-up">
+                            <span>-20%</span>
+                        </span>
+                    </div>
+                    <div class="pt-3">
+                        <a class="text-dark text-hover text-decoration-none fs-17 fw-500" href="#">
+                            @Html.DisplayFor(m => pro.nameProduct)
+                        </a>
+                        <div class="fs-16">
+                            <span class="me-2">@Html.DisplayFor(m => pro.priceProductInput) VND</span>
+                            <span class="me-2">
+                                @foreach (var size in pro.sizePro.Split(','))
+                                {
+                                    @size
+                                }
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-start gap-0 rounded" style="border: 1px solid #808080; width: fit-content">
+                            <button class="btn flex-grow-1">-</button>
+                            <input style="width: 100px;" class="input-group-text bg-white border-0 flex-grow-1" type="number" value="1" />
+                            <button class="btn flex-grow-1">+</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="py-5" style="border-top: 1px solid #8080802e">
+    <div class="container-md">
+        <div class="row border-1 border-dark">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                <button class="btn text-uppercase border-1 border-dark rounded-0">Tiếp tục mua hàng</button>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                <p class="text-center fw-bolder">Tổng đơn đặt hàng 1.038.400 VND</p>
+                <p class="text-center text-secondary">* Đã bao gồm thuế VAT</p>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 text-end">
+                <button class="btn text-uppercase fw-bold border-1 border-dark rounded-0">cập nhập giỏ hàng</button>
+                <button class="btn text-white bg-black text-uppercase fw-bold border-1 border-dark rounded-0">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+</div>
+

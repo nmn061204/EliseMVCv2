@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<EliseMVC.Models.tblProduct>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/LayoutCustomer/_Layout.cshtml";
+    ViewBag.Title = "ELISE - ĐỊNH HƯỚNG PHONG CÁCH THỜI TRANG";
 }
 <div class="slideshow-container">
     <a href="#" class="slide fade">
@@ -39,11 +38,11 @@
                         </span>
                     </div>
                     <div class="pt-3">
-                        <a class="text-dark text-hover text-decoration-none fs-17 fw-500" href="#">
+                        <a class="text-dark text-hover text-decoration-none fs-17 fw-500 uppercase" href="#">
                             @Html.DisplayFor(m => pro.nameProduct)
                         </a>
                         <div class="fs-16">
-                            <span class="me-2">@Html.DisplayFor(m => pro.priceProductInput) VND</span>
+                            <span class="me-2 color-primary">@Html.DisplayFor(m => pro.priceProductInput)</span>
                         </div>
                     </div>
                 </a>
@@ -51,11 +50,10 @@
         }
 
         <!-- btn xem thêm  -->
-        <div class="text-center">
-            <button id="load-more" class="btn bg-dark text-white mx-auto mt-5 mb-5 rounded-0 uppercase fw-500"
-                    style="height: 3rem; width: 10.5rem;">
-                Xem thêm
-            </button>
+        <div class="text-center my-5">
+            <div class="">
+                <a href="@Url.Action("AllProduct","Home")" class="btn py-2 bg-dark text-white rounded-0 uppercase fw-500" style="width: 10.5rem;">Xem thêm</a>
+            </div>
         </div>
     </div>
 </div>

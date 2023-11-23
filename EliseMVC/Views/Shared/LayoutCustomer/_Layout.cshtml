@@ -18,5 +18,12 @@
         @RenderBody()
     </div>
     @Html.Partial("_Footer")
+    <!-- Bao gồm thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Bao gồm thư viện Ajax Unobtrusive -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

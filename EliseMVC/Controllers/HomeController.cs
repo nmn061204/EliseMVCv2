@@ -14,7 +14,8 @@ namespace EliseMVC.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(db.tblProducts.ToList());
+            var products = db.tblProducts.Take(12).ToList();
+            return View(products);
         }
         public ActionResult AllProduct()
         {

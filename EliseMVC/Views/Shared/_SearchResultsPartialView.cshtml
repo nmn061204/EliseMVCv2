@@ -1,0 +1,14 @@
+﻿@model List<EliseMVC.Models.tblProduct>
+
+<div id="searchResultsContainer">
+
+    <ul class="list-group">
+        @foreach (var product in Model)
+        {
+            <a href="@Url.Action("ProductDetail", "Home", new { id = product.ID })" class="list-group-item list-group-item-action lh-base uppercase">
+                @product.nameProduct
+            </a>
+        }
+    </ul>
+
+</div>

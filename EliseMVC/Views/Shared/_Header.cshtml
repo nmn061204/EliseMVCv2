@@ -1,4 +1,5 @@
-﻿<header class="header">
+﻿
+<header class="header">
     <div class="middle-content">
         <div class="d-flex justify-content-between align-items-center">
             <div class="header-left d-flex align-items-center">
@@ -75,7 +76,7 @@
                     </div>
                 </div>
 
-                <a href="@Url.Action("Cart", "Checkout")">
+                <a href="@Url.Action("Cart", "Cart")">
                     <div class="cart">
                         <i class="fa-solid fa-bag-shopping fs-21"></i>
                     </div>
@@ -88,91 +89,4 @@
         </div>
     </div>
 </header>
-<section class="header-wrapper-end">
-    <div class="header-canvas-menu megamenu-content" style="padding-top: 100px;">
-        <div class="close-menu"><i class="fa-solid fa-xmark"></i></div>
-        <div id="main-Menucontent" class="item-pane menu-list">
-            <div class="menu-logo">
-                <a href="https://elise.vn/">
-                    <img src="https://elise.vn/media/logo/default/logo_color.png" alt="menu logo">
-                </a>
-            </div>
-            <div class="container-menu">
-                <ul class="list-menu">
-                    <li class="item-menu">Bộ sưu tập</li>
-                    <li class="item-menu">Thời trang nữ</li>
-                    <li class="item-menu">Phụ kiện</li>
-                    <li class="item-menu">Sale up to 50%</li>
-                    <li class="item-menu">Elise store</li>
-                    <li class="item-menu">Thẻ thành viên</li>
-                    <li class="item-menu">Hệ thộng cửa hàng</li>
-                    <li class="item-menu">Thông tin</li>
-                    <li class="item-menu">ESG Activities</li>
-                    <li class="item-menu">May đo đồng phục</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="canvas canvas-customer-login">
-        <div class="close"><i class="fa-solid fa-xmark"></i></i></div>
-        <div class="canvas-content-wrapper ">
-            <div class="title uppercase "><span>Đăng nhập</span></div>
-            <div class="create-account ">
-                <span>Bạn chưa có tài khoản?</span><a href="@Url.Action("Register","Account")" class="text-des-none-hover">Tạo tài khoản</a>
-            </div>
-        </div>
-        <form class="form form-login myaccount-form-login" action="https://elise.vn/customer/account/loginPost/"
-              method="post" id="login-form" novalidate="novalidate">
-            <input name="form_key" type="hidden" value="LPxjP7jomw24ewTt">
-            <div class="field-control email required">
-                <input name="username" placeholder="Địa chỉ email hoặc số điện thoại của bạn" value=""
-                       autocomplete="off" id="email" type="text" class="input-text" title="Email">
-            </div>
-            <div class="field-control password required">
-                <input name="password" placeholder="Mật khẩu" type="password" autocomplete="off" class="input-text"
-                       id="pass" title="Mật khẩu">
-            </div>
-            <div class=" action remind">
-                <a href="" class="underline">Quên mật khẩu?</a>
-            </div>
-            <div class="field choice mgs-gdpr-checkbox d-flex flex-start" style="margin-top: 10px;">
-                <input type="checkbox" style="width: 30px;margin-top: 5px;">
-                <label for="accept_gdpr" class="label">
-                    <span>
-                        Tôi đồng ý Điều kiện - Điều khoản &amp; Chính sách bảo
-                        mật của
-                        Elise.
-                    </span>
-                </label>
-            </div>
-            <div class="actions-toolbar">
-                <button type="submit" class="action btn-login uppercase" name="send" id="send2">
-                    <span>Đăng nhập</span>
-                </button>
-            </div>
-            </fieldset>
-        </form>
-        <div class="myaccount-socials-login">
-            <div class="btn-login-social login-facebook uppercase">
-                <a href="#" style="text-decoration: none;">
-                    <i class="fab fa-facebook-f"></i><span>
-                        Đăng nhập bằng
-                        facebook
-                    </span>
-                </a>
-            </div>
-            <div class="btn-login-social login-google uppercase">
-                <a href="#" style="text-decoration: none;">
-                    <i class="fab fa-google-plus-g"></i><span>
-                        Đăng nhập bằng
-                        google
-                    </span>
-                </a>
-            </div>
-
-        </div>
-    </div>
-    </div>
-    <div class="header-overlay"></div>
-</section>
 

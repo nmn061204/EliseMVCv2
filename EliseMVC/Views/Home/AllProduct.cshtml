@@ -1,0 +1,80 @@
+﻿@model IEnumerable<EliseMVC.Models.tblProduct>
+
+@{
+    ViewBag.Title = "THỜI TRANG NỮ";
+    Layout = "~/Views/Shared/LayoutCustomer/_Layout.cshtml";
+}
+
+<div class="w-100" style="height: 48rem;">
+    <img class="" src="https://elise.vn/media/wysiwyg/BANNER/cv-true.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+
+<ul class="d-flex justify-content-center list-unstyled uppercase align-items-center m-4">
+    <li class="mx-2 px-3">
+        <a href="https://www.facebook.com/elisevietnam" class="text-decoration-none text-dark fs-18">
+            <i class="fa-brands fa-facebook-f"></i>
+            <span class="fw-300 lh-175 text-hover-underline">facebook</span>
+        </a>
+    </li>
+    <li class="mx-2 px-3">
+        <a href="https://www.instagram.com/elise_fashion/" class="text-decoration-none text-dark fs-18">
+            <i class="fa-brands fa-instagram"></i>
+            <span class="fw-300 lh-175 text-hover-underline">instagram</span>
+        </a>
+    </li>
+    <li class="mx-2 px-3">
+        <a href="https://www.youtube.com/channel/UCJQ_oyCa-XLriHtnotsAJnQ" class="text-decoration-none text-dark fs-18">
+            <i class="fa-brands fa-youtube"></i>
+            <span class="fw-300 lh-175 text-hover-underline">youtube</span>
+        </a>
+    </li>
+    <li class="mx-2 px-3">
+        <a href="https://www.tiktok.com/eliseofficial.ol" class="text-decoration-none text-dark fs-18">
+            <i class="fa-brands fa-tiktok"></i>
+            <span class="fw-300 lh-175 text-hover-underline">tiktok</span>
+        </a>
+    </li>
+    <li class="mx-2 px-3">
+        <a href="https://zalo.me/1834764771593862920" class="text-decoration-none text-dark fs-18">
+            <i class="fa-solid fa-z"></i>
+            <span class="fw-300 lh-175 text-hover-underline">zalo</span>
+        </a>
+    </li>
+</ul>
+<div  id="product-list"  class="row">
+    @foreach (var pro in Model)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-5 ">
+            <a href="@Url.Action("ProductDetail", "Home", new { id = pro.ID })" class="product-card">
+                <div class="image-container cursor-pointer">
+                    <img class="base-image image"
+                         src="@Url.Content(pro.imageProduct1)"
+                         alt="Base Image">
+                    <img class="hover-image image"
+                         src="@Url.Content(pro.imageProduct2)"
+                         alt="Hover Image">
+                    <span class="sale triangle-up">
+                        <span>-20%</span>
+                    </span>
+                </div>
+                <div class="pt-3">
+                    <a class="text-dark text-hover text-decoration-none fs-17 fw-500 uppercase" href="#">
+                        @Html.DisplayFor(m => pro.nameProduct)
+                    </a>
+                    <div class="fs-16">
+                        <span class="me-2 color-primary">@Html.DisplayFor(m => pro.priceProductInput)</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    <div class="m-20">
+        <ul class="pagination d-flex justify-content-center fs-16">
+            <li class=""><a class="page-btn text-decoration-none" href="#"><i class="fa-solid fa-angles-left"></i></a></li>
+            <li class=""><a class="page-btn text-decoration-none" href="#">1</a></li>
+            <li class=""><a class="page-btn text-decoration-none" href="#">2</a></li>
+            <li class=""><a class="page-btn text-decoration-none" href="#"><i class="fa-solid fa-angles-right"></i></a></li>
+        </ul>
+    </div>
+</div>
+            

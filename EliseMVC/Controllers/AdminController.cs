@@ -1,6 +1,7 @@
 ﻿using EliseMVC.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,22 +19,34 @@ namespace EliseMVC.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string userName, string userPass)
+        public ActionResult Login(tblUser model)
         {
-            var user = db.tblUsers.FirstOrDefault(u => u.userName == userName && u.userPass == userPass);
+            if (ModelState.IsValid)
+               
+            {
+                using (var db = new DBEliseStoreEntitiess())
+                {
+                    // Kiểm tra thông tin đăng nhập từ cơ sở dữ liệu
+                    var user = db.tblUsers.FirstOrDefault(u => u.userName == model.userName && u.userPass == model.userPass);
 
-            if (user != null)
-            {
-                FormsAuthentication.SetAuthCookie(userName, false);
-                System.Diagnostics.Debug.WriteLine("User is authenticated: " + User.Identity.IsAuthenticated);
-                // Đăng nhập thành công, có thể thực hiện các hành động khác ở đây
-                return RedirectToAction("Index", "Product");
+                    if (user != null)
+                    {
+                        // Đăng nhập thành công
+                        // Thực hiện lưu thông tin đăng nhập vào Session hoặc Cookie nếu cần
+                        FormsAuthentication.SetAuthCookie(user.userName, false);
+
+                        // Chuyển hướng đến trang Admin hoặc trang chính
+                        return RedirectToAction("Index", "Product");
+                    }
+                    else
+                    {
+                        // Đăng nhập không thành công, thêm thông báo lỗi vào ModelState
+                        ModelState.AddModelError("", "Thông tin đăng nhập không đúng");
+                    }
+                }
+               
             }
-            else
-            {
-                ViewBag.ErrorMessage = "Tên đăng nhập hoặc mật khẩu không đúng.";
-                return View("Login");
-            }
+            return View();
         }
     }
 }
