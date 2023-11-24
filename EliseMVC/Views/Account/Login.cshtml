@@ -1,4 +1,5 @@
-﻿<section class="header-wrapper-end">
+﻿@model EliseMVC.Models.tblUser
+<section class="header-wrapper-end">
     <div class="header-canvas-menu megamenu-content" style="padding-top: 100px;">
         <div class="close-menu"><i class="fa-solid fa-xmark"></i></div>
         <div id="main-Menucontent" class="item-pane menu-list">
@@ -31,37 +32,39 @@
                 <span>Bạn chưa có tài khoản?</span><a href="@Url.Action("Register","Account")" class="text-des-none-hover">Tạo tài khoản</a>
             </div>
         </div>
-        <form class="form form-login myaccount-form-login" action="https://elise.vn/customer/account/loginPost/"
-              method="post" id="login-form" novalidate="novalidate">
-            <input name="form_key" type="hidden" value="LPxjP7jomw24ewTt">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form form-login myaccount-form-login" }))
+        {
+            @Html.AntiForgeryToken()
+
             <div class="field-control email required">
-                <input name="username" placeholder="Địa chỉ email hoặc số điện thoại của bạn" value=""
-                       autocomplete="off" id="email" type="text" class="input-text" title="Email">
+                @Html.TextBoxFor(m => m.userName, new { @class = "input-text", placeholder = "Địa chỉ email hoặc số điện thoại của bạn", @id = "email" })
+                @Html.ValidationMessageFor(m => m.userName)
             </div>
+
             <div class="field-control password required">
-                <input name="password" placeholder="Mật khẩu" type="password" autocomplete="off" class="input-text"
-                       id="pass" title="Mật khẩu">
+                @Html.PasswordFor(m => m.userPass, new { @class = "input-text", placeholder = "Mật khẩu", @id = "pass" })
+                @Html.ValidationMessageFor(m => m.userPass)
             </div>
-            <div class=" action remind">
-                <a href="" class="underline">Quên mật khẩu?</a>
+
+            <div class="action remind">
+                <a href="#" class="underline">Quên mật khẩu?</a>
             </div>
+
             <div class="field choice mgs-gdpr-checkbox d-flex flex-start" style="margin-top: 10px;">
-                <input type="checkbox" style="width: 30px;margin-top: 5px;">
+                <input type="checkbox" id="accept_gdpr" name="accept_gdpr" style="width: 30px; margin-top: 5px;" />
                 <label for="accept_gdpr" class="label">
                     <span>
-                        Tôi đồng ý Điều kiện - Điều khoản &amp; Chính sách bảo
-                        mật của
-                        Elise.
+                        Tôi đồng ý Điều kiện - Điều khoản & Chính sách bảo mật của Elise.
                     </span>
                 </label>
             </div>
+
             <div class="actions-toolbar">
                 <button type="submit" class="action btn-login uppercase" name="send" id="send2">
                     <span>Đăng nhập</span>
                 </button>
             </div>
-            </fieldset>
-        </form>
+        }
         <div class="myaccount-socials-login">
             <div class="btn-login-social login-facebook uppercase">
                 <a href="#" style="text-decoration: none;">

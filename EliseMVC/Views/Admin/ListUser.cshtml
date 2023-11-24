@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EliseMVC.Models.tblUser>
+
+@{
+    ViewBag.Title = "ListUser";
+    Layout = "~/Views/Shared/LayoutAdmin/_AdminLayout.cshtml";
+}
+
+<h2 class="">Danh sách người dùng</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Admin", new { @class = "btn btn-success" })
+</p>
+<table class="table align-middle text-center">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.userID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userPass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userRole)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.userID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userPass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userRole)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Admin", new { id = item.userID }, new { @class = "btn btn-dark" }) |
+
+            @Html.ActionLink("Detail", "Details", "Admin", new { id = item.userID }, new { @class = "btn btn-warning" }) |
+
+            @Html.ActionLink("Delete", "Delete", "Admin", new { id = item.userID }, new { @class = "btn btn-danger " })
+        </td>
+    </tr>
+}
+
+</table>

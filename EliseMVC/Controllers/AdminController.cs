@@ -13,40 +13,49 @@ namespace EliseMVC.Areas.Admin.Controllers
     {
         DBEliseStoreEntitiess db = new DBEliseStoreEntitiess();
         // GET: Admin
-
-        public ActionResult Login()
+        public ActionResult ListUser()
         {
+            return View(db.tblUsers.ToList());
+        }
+        public ActionResult Create()
+        {        
             return View();
         }
         [HttpPost]
-        public ActionResult Login(tblUser model)
+        public ActionResult Create(tblUser user)
         {
-            if (ModelState.IsValid)
-               
-            {
-                using (var db = new DBEliseStoreEntitiess())
-                {
-                    // Kiểm tra thông tin đăng nhập từ cơ sở dữ liệu
-                    var user = db.tblUsers.FirstOrDefault(u => u.userName == model.userName && u.userPass == model.userPass);
-
-                    if (user != null)
-                    {
-                        // Đăng nhập thành công
-                        // Thực hiện lưu thông tin đăng nhập vào Session hoặc Cookie nếu cần
-                        FormsAuthentication.SetAuthCookie(user.userName, false);
-
-                        // Chuyển hướng đến trang Admin hoặc trang chính
-                        return RedirectToAction("Index", "Product");
-                    }
-                    else
-                    {
-                        // Đăng nhập không thành công, thêm thông báo lỗi vào ModelState
-                        ModelState.AddModelError("", "Thông tin đăng nhập không đúng");
-                    }
-                }
-               
-            }
-            return View();
+            db.tblUsers.Add(user);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
+        public ActionResult Details(int id)
+        {
+            return View(db.tblUsers.Where(s => s.userID == id).FirstOrDefault());
+        }
+        public ActionResult Edit(int id)
+        {
+
+            return View(db.tblUsers.Where(s => s.userID == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult Edit(int id, tblUser user) 
+        {
+            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Delete(int id)
+        {
+            return View(db.tblUsers.Where(s => s.userID == id).FirstOrDefault());
+        }
+        [HttpPost]
+        public ActionResult Delete(int id, tblUser user)
+        {
+            user = db.tblUsers.Where(s => s.userID == id).FirstOrDefault();
+            db.tblUsers.Remove(user);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
